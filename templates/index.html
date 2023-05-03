@@ -1,0 +1,73 @@
+{% comment %} it is in templets folder which contain html filse  {% endcomment %}
+
+
+<!Doctype html>
+<html>
+    <head>
+        {% comment %} we dynamic enter the html page , data comes from view.py files {% endcomment %}
+
+        <title>{{title}}</title>
+
+        {% comment %} <title>{data.title}</title> we can be use this type {% endcomment %}
+        
+    </head>
+<body>
+    <p>this is html page</p>
+    <p>{{pargraph}}</p>
+
+    {% comment %} we use for loop in html {% endcomment %}
+    <ol>
+    {% for n in clist%}
+    <li>{{n}}</li>
+    {% endfor %} 
+</ol>
+
+{% for n in clist%}
+    <div>{{forloop.counter}} {{n}}</div>
+    {% endfor %}
+<br>
+    {% for n in clist%}
+    <div>{{forloop.counter0}} {{n}}</div> 
+    {% comment %} it start the counting from 0 {% endcomment %}
+    {% endfor %}
+<br>
+    <table border="1" cellpadding='10'>
+        <tr>
+            <th>Name</th>
+            <th>PhoneNumber</th>
+        </tr>
+        {%for d in student_details%}
+        <tr>
+            <td>{{d.name}}</td>
+            <td>{{d.phone}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+    <br>
+
+
+    {% comment %} if else condition in html {% endcomment %}
+    {%for n in number%}
+    {%if n > 5 %}
+        <div>{{n}}</div>
+    {% endif %}
+    {%endfor%}
+    
+    {% comment %} find the length {% endcomment %}
+
+    <div>lenth of list {{number|length}}</div>
+     
+    {% comment %} number is even or odd {% endcomment %}
+    {%for n in number%}
+    {%if n|divisibleby:2%}
+        <div>even</div>
+    {%else%}
+        <div>odd</div>
+    {% endif %}
+
+    {%endfor%}
+
+
+
+</body>
+</html>
